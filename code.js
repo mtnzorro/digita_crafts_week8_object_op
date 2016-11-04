@@ -53,3 +53,25 @@ Deck.prototype.draw = function(){
 Deck.prototype.numCardsLeft = function(){
   return this.cards.length;
 };
+
+
+Deck.prototype.shuffle = function(){
+  var m = this.cards.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = this.cards[m];
+    this.cards[m] = this.cards[i];
+    this.cards[i] = t;
+  }
+
+  return this.cards;
+  // this.cards.map(function(place){
+  // var new_place = Math.floor(Math.random() * place);
+  // this.cards[new_place] = this.cards[place];
+}
