@@ -39,9 +39,17 @@ Hand.prototype.getPoints = function(){
 function Deck(){
   this.cards = [];
   for (i=1; i<14; i++) {
-    this.cards.push({point: i, suit: 'spades'});
-    this.cards.push({point: i, suit: 'hearts'});
-    this.cards.push({point: i, suit: 'clubs'});
-    this.cards.push({point: i, suit: 'diamonds'});
+    this.cards.push(new Card(i,'spades'));
+    this.cards.push(new Card(i,'hearts'));
+    this.cards.push(new Card(i,'clubs'));
+    this.cards.push(new Card(i,'diamonds'));
   }
 }
+
+Deck.prototype.draw = function(){
+  return this.cards.pop();
+};
+
+Deck.prototype.numCardsLeft = function(){
+  return this.cards.length;
+};

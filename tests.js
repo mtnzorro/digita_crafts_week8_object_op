@@ -88,7 +88,16 @@ describe('Deck', function () {
 
   it('should generate a deck of card objects', function() {
     deck = new Deck();
-    var ace = {point: 1, suit: 'spades'};
+    var ace = new Card(1, 'spades');
     expect(deck.cards[0]).toEqual(ace);
   });
+  it('should draw one card from the deck when asked', function(){
+    deck = new Deck();
+    expect(deck.draw()).toEqual(new Card(13,'diamonds'));
+  });
+  it('should return the number of cards left in the deck', function(){
+    deck = new Deck();
+    expect(deck.numCardsLeft()).toEqual(deck.cards.length);
+  });
+
   });
